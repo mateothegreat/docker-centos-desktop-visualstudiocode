@@ -4,7 +4,8 @@ FROM appsoa/docker-centos-desktop-vnc:latest
 
 USER root
 
-RUN yum -y install https://go.microsoft.com/fwlink/?LinkID=760866
+RUN curl https://go.microsoft.com/fwlink/?LinkID=760866 && ls -la
+# yum -y install https://go.microsoft.com/fwlink/?LinkID=760866
 
 #ENV INSTALL4J_JAVA_HOME=/usr/java/jdk1.8.0_60 \
 #    TZ=America/Phoenix

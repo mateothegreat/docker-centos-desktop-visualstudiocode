@@ -1,10 +1,8 @@
 # [docker-centos-desktop-visualstudiocode](https://code.visualstudio.com)
 
-<div style="text-align: center">
 
 ![vscode](http://code.visualstudio.com/images/typescript_Languages_typescript.png)
 
-</div>
 
 
 

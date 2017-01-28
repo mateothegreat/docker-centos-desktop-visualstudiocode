@@ -1,7 +1,43 @@
 # [docker-centos-desktop-visualstudiocode](https://code.visualstudio.com)
 
-![vscode](http://code.visualstudio.com/images/typescript_Languages_typescript.png)
 
+<span style="float: right; padding-right: 20px; width: 600px; text-align: right; ">
+<img src="http://i.imgur.com/MBKce09.png" style="margin-bottom: 35px; margin-right: 20px">
+![docker](http://i.imgur.com/rAuZnDH.png)
+</span>
+
+Self-contained container deployment running on CentOS over VNC & RDP. 
+
+This image comes with Visual Studio Code (insiders edition) and dependencies pre-installed. Start up the container, connect with a VNC client and you're up and running. There are several open-source VNC clients such as [TightVNC](www.tightvnc.com), [TigerVNC](tigervnc.org) and [Realvnc](https://www.realvnc.com/).
+<!--![vscode](http://code.visualstudio.com/images/typescript_Languages_typescript.png)-->
+
+
+## Connecting to the container over VNC
+
+![vnc](http://i.imgur.com/7OycbKd.png)
+
+## Building the Docker Image
+
+```bash
+$ cd docker-centos-desktop-visualstudiocode
+$ docker build -t appsoa/docker-centos-desktop-visualstudiocode .          
+```
+
+## Starting the Container
+You can remove a previously started vscode container by running `docker rm -f vscode`.
+
+```bash
+docker run -id  -e CONF_VNC_PASS=changeme \
+                -e CONF_VNC_PORT=5901 \
+                -p 5901:5901 \
+                --name vscode \
+                 appsoa/docker-centos-desktop-visualstudiocode
+
+
+```
+
+## Gaining a shell
+As the default user "user" `docker exec -it vscode /bin/bash`. You can pass the `-u 0` argument if you need a root shell `docker exec -it -u 0 vscode /bin/bash`
 ## Create a persistent volume
 Each container user has a persistent directory for maintaining settings & state.
 

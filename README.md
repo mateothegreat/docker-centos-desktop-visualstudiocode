@@ -1,23 +1,21 @@
 # [docker-centos-desktop-visualstudiocode](https://code.visualstudio.com)
 
-
 ![vscode](http://code.visualstudio.com/images/typescript_Languages_typescript.png)
-
-
-
 
 ## Create a persistent volume
 Each container user has a persistent directory for maintaining settings & state.
 
 0. Create a template/standard basic image:
 
-```bash
-$ gcloud compute    disks create \
-                    disk-name \
-                    --description "Persistent Volume for user home directory." \
-                    --size 10 \
-                    --image user-template
+    ```
+    $ gcloud compute    disks create \
+                        disk-name \
+                        --description "Persistent Volume for user home directory." \
+                        --size 10 \
+                        --image user-template
 
+    ```
+    
 0. Attach new disk to a running VM
 
 If you need to make changes to the file system you can mount the new disk to any running vm.
